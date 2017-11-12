@@ -19,6 +19,6 @@ public:
 	Car();
 	~Car();
 	friend std::ostream& operator<< (std::ostream& stream, const Car& c);
-	Car compareByYear(Car &);
-	Car compareByEngineVolume(Car &);
+	const Car compareByYear(const Car & car2)const;	
+	const Car Car::compareByEngineVolume(const Car & car2)const;
 };

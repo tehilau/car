@@ -28,7 +28,7 @@ using namespace std;
 	Car::~Car()
 	{
 	}
-	//operation << cout
+	//print method to char operation << cout
 	std::ostream& operator<<(std::ostream& os, const Car& c)
 	{
 		os << "make: " << c.make << "\nmodel: " << c.model << "\nyear: " << c.year << "\nengine volume: " << c.engineVolume << "\ncolor: " << c.color << endl;;
@@ -50,7 +50,10 @@ using namespace std;
 	}
 	void Car::setYear(int y)
 	{
-		year = y;
+		if (y < 1970 && y>2017)
+		{
+			year = y;
+		}
 	}
 	void Car::setEngineVolume(int engineVol)
 	{
@@ -60,11 +63,11 @@ using namespace std;
 	{
 		strcpy_s(color, 10, color);
 	}
-	Car Car::compareByYear(Car & car2)
+	const Car Car::compareByYear(const Car & car2)const
 	{
 		return(year >= car2.year) ? *this : car2;
 	}
-	Car Car::compareByEngineVolume(Car & car2)
+	const Car Car::compareByEngineVolume(const Car & car2)const
 	{
 		return (engineVolume >= car2.engineVolume) ? *this : car2;
 	}
